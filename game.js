@@ -16,10 +16,8 @@ $("div.btn").click(function (e) {
                 $("body").removeClass("game-over");
             }, 200);
             $("#level-title").text("Game Over, Press A Key to Start");
-            gameOver = true;
-            level = 0;
             userClickedPattern = [];
-            gamePattern = [];
+            startOver();
         }
         else if (userClickedPattern.length === level){
             setTimeout(nextSequence, 1000);
@@ -70,4 +68,11 @@ function nextSequence() {
 function playSound(key) {
     new Audio("sounds/" + key + ".mp3").play();
     userClickedPattern.push(key);
+}
+
+
+function startOver() {
+    gameOver = true;
+    level = 0;
+    gamePattern = [];
 }
